@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Outlet } from 'react-router';
 import Navbar from '../assets/Components/Shared/Navbar';
 import Footer from '../assets/Components/Shared/Footer';
