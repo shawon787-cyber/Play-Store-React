@@ -5,7 +5,8 @@ export const InstalledAppsContext = createContext();
 const InstalledAppProvider = ({children}) => {
     const [installedApps, setInstalledApps] = useState([]);
     const data = {
-        installedApps, setInstalledApps
+        installedApps, 
+        setInstalledApps,
     }
     return <InstalledAppsContext.Provider value={data}>{children}</InstalledAppsContext.Provider>;
 };

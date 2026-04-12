@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import UseApps from '../../Hooks/UseApps';
 import { HashLoader } from 'react-spinners';
 import { InstalledAppsContext } from '../../Context/InstalledAppProvider';
+import { toast } from 'react-toastify';
 
 const AppDetails = () => {
     const {id} = useParams();
@@ -19,7 +20,8 @@ const AppDetails = () => {
         )
     }
     const handleInstallApps =()=>{
-        setInstalledApps([...installedApps, expectedApps])
+        setInstalledApps([...installedApps, expectedApps]);
+        toast.success(`${expectedApps.title} App is installed`)
     }
     console.log(installedApps, "installed apps");
     return (
