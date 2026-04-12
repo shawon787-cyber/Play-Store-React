@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { InstalledAppsContext } from '../../Context/InstalledAppProvider';
 import { toast } from 'react-toastify';
+import NotFound from './NotFound';
 
 const InstallApps = () => {
     const {installedApps, setInstalledApps} = useContext(InstalledAppsContext);
@@ -14,8 +15,8 @@ const InstallApps = () => {
     }
     return (
         <div className='container mx-auto px-2 my-10 grid gap-6'>
-            {
-                installedApps.map((app, ind)=>{
+            { installedApps.length === 0 ? <NotFound></NotFound> :              
+            installedApps.map((app, ind)=>{
                     return <div className='shadow flex items-center  p-4 rounded-md bg-purple-50 justify-between' key={ind}>
                         
                         <div className='flex items-center gap-4'>
