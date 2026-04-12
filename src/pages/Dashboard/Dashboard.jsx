@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Legend, Pie, PieChart, Tooltip } from 'recharts';
+import { InstalledAppsContext } from '../../Context/InstalledAppProvider';
+import UseApps from '../../Hooks/UseApps';
 
-const data = [
-  { name: 'Installed', value: 400 , fill: "#6366F1" },
-  { name: 'Uninstalled', value: 200 , fill: "#22C55E"},
+
+const Dashboard = () => {
+  const {installedApps} = useContext(InstalledAppsContext);
+  const {apps} =UseApps();
+  console.log(apps);
+  const uninstallApps = apps.length - installedApps.length;
+  const data = [
+  { name: 'Installed', value: installedApps.length , fill: "#6366F1" },
+  { name: 'Uninstalled', value: uninstallApps , fill: "#22C55E"},
   
 ];
-const Dashboard = () => {
     return (
          <div className='flex flex-col gap-5 items-center justify-center my-8'>
             <h2 className='text-3xl font-semibold text-purple-500'>Install & Uninstall Apps</h2>
